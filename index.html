@@ -1,23 +1,665 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+
+  <!-- Schema.org FinancialProduct 마크업(JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FinancialProduct",
+    "name": "저축은행개인사업자대출 종합 비교 분석 가이드",
+    "description": "2026년 국내 저축은행들의 개인사업자 및 소상공인 대상 대출 상품의 금리, 한도 조건, 필요 서류를 체계적으로 분석하고 안내합니다.",
+    "provider": {
+      "@type": "FinancialService",
+      "name": "저축은행 개인사업자 금융 지원 비교 안내 센터",
+      "url": "https://finance.reliabledone.com"
+    },
+    "feesAndCommissionsSpecification": "중도상환수수료 및 부대비용 규정 명시",
+    "interestRate": {
+      "@type": "QuantitativeValue",
+      "minValue": "4.5",
+      "maxValue": "19.9",
+      "unitText": "ANNUAL_PERCENTAGE_RATE"
+    }
+  }
+  </script>
+
+  <style>
+    /* 다채롭고 부드러운 색감 및 명확한 시각적 계층 구조 적용 */
+    body { 
+      font-family: 'Noto Sans KR', sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      background: #f8fafc; 
+      color: #1e293b; 
+      line-height: 1.8; 
+    }
+    header { 
+      background: linear-gradient(135deg, #1e3a8a, #0f766e); 
+      color: #ffffff; 
+      padding: 60px 20px; 
+      text-align: center; 
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+    }
+    header h1 { 
+      font-size: 2.6rem; 
+      font-weight: 700; 
+      margin-bottom: 15px; 
+      letter-spacing: -0.05em; 
+      color: #f1f5f9;
+    }
+    header p { 
+      font-size: 1.2rem; 
+      opacity: 0.9; 
+      max-width: 800px; 
+      margin: 0 auto; 
+    }
+    main { 
+      max-width: 1000px; 
+      margin: 30px auto; 
+      padding: 20px; 
+    }
+    nav { 
+      background: #ffffff; 
+      border-radius: 12px; 
+      padding: 15px; 
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04); 
+      margin-bottom: 30px; 
+    }
+    nav ul { 
+      list-style-type: none; 
+      padding: 0; 
+      margin: 0; 
+      display: flex; 
+      flex-wrap: wrap; 
+      justify-content: center; 
+      gap: 15px; 
+    }
+    nav a { 
+      color: #334155; 
+      text-decoration: none; 
+      font-weight: 500; 
+      padding: 8px 16px; 
+      border-radius: 20px; 
+      background: #f1f5f9; 
+      transition: all 0.2s ease; 
+      font-size: 0.95rem;
+    }
+    nav a:hover { 
+      background: #0f766e; 
+      color: #ffffff; 
+    }
+    section { 
+      background: #ffffff; 
+      padding: 35px; 
+      border-radius: 16px; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03); 
+      margin-bottom: 40px; 
+      border: 1px solid #e2e8f0;
+    }
+    h2 { 
+      font-size: 1.8rem; 
+      color: #1e3a8a; 
+      border-left: 6px solid #0d9488; 
+      padding-left: 15px; 
+      margin-top: 0; 
+      margin-bottom: 20px; 
+      font-weight: 700; 
+    }
+    h3 { 
+      font-size: 1.4rem; 
+      color: #0f766e; 
+      margin-top: 30px; 
+      margin-bottom: 15px; 
+      font-weight: 600; 
+    }
+    p, li, td, th { 
+      font-size: 1.05rem; 
+      color: #334155; 
+    }
+    ul, ol { 
+      padding-left: 20px; 
+      margin-top: 10px; 
+    }
+    li { 
+      margin-bottom: 10px; 
+    }
+    table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      margin: 25px 0; 
+      font-size: 0.95rem; 
+    }
+    th, td { 
+      border: 1px solid #e2e8f0; 
+      padding: 14px; 
+      text-align: left; 
+      vertical-align: middle; 
+    }
+    th { 
+      background: #f1f5f9; 
+      color: #1e3a8a; 
+      font-weight: 600; 
+    }
+    tr:nth-child(even) td { 
+      background: #f8fafc; 
+    }
+    a { 
+      color: #0284c7; 
+      text-decoration: none; 
+      font-weight: 500; 
+    }
+    a:hover { 
+      text-decoration: underline; 
+    }
+    .btn-cta {
+      display: inline-block;
+      padding: 14px 30px;
+      background: #0d9488; 
+      color: #ffffff;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(13, 148, 136, 0.2);
+      transition: all 0.2s ease;
+      text-decoration: none;
+      text-align: center;
+      margin-top: 15px;
+    }
+    .btn-cta:hover { 
+      background: #0f766e; 
+      box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+    }
+    .info-box { 
+      background-color: #f0fdf4; 
+      padding: 20px; 
+      border-left: 5px solid #16a34a; 
+      margin: 25px 0; 
+      border-radius: 8px; 
+    }
+    .warning-box { 
+      background-color: #fffbeb; 
+      padding: 20px; 
+      border-left: 5px solid #d97706; 
+      margin: 25px 0; 
+      border-radius: 8px; 
+    }
+    .form-group { 
+      margin-bottom: 20px; 
+    }
+    .form-group label { 
+      display: block; 
+      font-weight: 600; 
+      margin-bottom: 8px; 
+      color: #334155; 
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; 
+      padding: 12px; 
+      border: 1px solid #cbd5e1; 
+      border-radius: 8px; 
+      box-sizing: border-box;
+      font-size: 1rem; 
+      color: #1e293b;
+      background: #f8fafc;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: #0d9488;
+      background: #ffffff;
+    }
+    .flex-grid {
+      display: flex;
+      gap: 20px;
+    }
+    .flex-grid .form-group {
+      flex: 1;
+    }
+    footer { 
+      text-align: center; 
+      padding: 30px; 
+      background: #1e293b; 
+      color: #94a3b8;
+      margin-top: 50px; 
+      border-top: 1px solid #334155; 
+    }
+    footer p {
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    /* 반응형 디자인 */
+    @media(max-width:768px) {
+      body { padding: 0; }
+      header { padding: 40px 15px; }
+      header h1 { font-size: 2rem; }
+      main { margin: 15px auto; padding: 10px; }
+      section { padding: 20px; }
+      nav ul { flex-direction: column; align-items: stretch; }
+      nav a { text-align: center; }
+      .flex-grid { flex-direction: column; gap: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>저축은행개인사업자대출 조건 및 한도 금리 심층 분석</h1>
+    <p>소상공인 및 자영업자를 위한 2026년 최신 금융 지원 정보와 비대면 대출 상품 비교 가이드라인을 제공합니다.</p>
+  </header>
+
+  <main>
+    <nav aria-label="메인 네비게이션">
+      <ul>
+        <li><a href="#intro">시장 전망 및 구조</a></li>
+        <li><a href="#regional">전국 지역별 비교</a></li>
+        <li><a href="#comparison">1금융권 차이점</a></li>
+        <li><a href="#calculator">이자 계산기</a></li>
+        <li><a href="#brands">브랜드 및 순위</a></li>
+        <li><a href="#checklist">심사 체크리스트</a></li>
+        <li><a href="#counseling">맞춤형 컨설팅 신청</a></li>
+      </ul>
     </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+    <!-- Section 1: 저축은행개인사업자대출 개요 및 2026년도 시장 트렌드 -->
+    <section id="intro">
+      <h2>저축은행개인사업자대출 제도적 환경과 2026년도 자금 시장 동향</h2>
+      <p>
+        장기화된 고금리 기조와 가계대출 규제 강화 속에서 많은 소상공인과 자영업자들이 원활한 자금 조달에 어려움을 겪고 있습니다. 2026년도 현재 국내 저축은행권의 개인사업자 및 자영업자 대상 대출 공급은 규제 변화와 함께 심사 기준이 정교화되는 흐름을 보이고 있습니다. 시중은행과 같은 제1금융권의 대출 문턱이 높아짐에 따라, 상대적으로 한도 산출이 유연하고 실행 속도가 빠른 저축은행개인사업자대출 상품이 사업장의 유동성 위기를 극복하는 대안적 수단으로 널리 활용되고 있습니다.
+      </p>
+      <p>
+        최근 저축은행 업권에서는 빅데이터와 머신러닝 알고리즘에 기반한 신용평가시스템을 전면 도입하여, 과거 단순한 신용등급 중심의 심사에서 탈피하고 있습니다. 실시간 가맹점 매출 데이터, 전자상거래 정산 내역, 임대차 계약 구조 분석 등 다각적인 비금융 및 대안 데이터를 활용해 개별 차주의 실질적인 상환 능력을 정밀하게 평가하고 있습니다. 이에 따라 신용도가 비교적 낮거나 재무제표가 확립되지 않은 신규 창업 소상공인이라 할지라도 사업의 실질적 가치와 영속성에 따라 적정한 금리와 한도로 자금을 융통할 수 있는 기회가 열려 있습니다.
+      </p>
+      <div class="info-box">
+        <h3>2026년도 시장 트렌드 핵심 정리</h3>
+        <ul>
+          <li><strong>비대면 다이렉트 심사의 보편화:</strong> 오프라인 지점 방문 없이 전용 모바일 앱 및 웹사이트를 통해 서류 제출부터 송금까지 원스톱으로 처리되는 디지털 창구가 자리를 잡았습니다.</li>
+          <li><strong>핀테크 플랫폼과의 연계성 확대:</strong> 토스, 카카오페이, 네이버파이낸셜 등 국내 유수의 금융 플랫폼과 저축은행 전산망이 연동되어 실시간 한도 비교 및 금리 할인 혜택 조회가 수월해졌습니다.</li>
+          <li><strong>정부 정책자금과의 하이브리드 결합:</strong> 서민금융진흥원 및 지역신용보증재단과의 협약 상품인 햇살론 등 보증부 대출이 제2금융권 저축은행을 통해 안정적으로 보급되고 있어 금융 비용 절감을 돕고 있습니다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Section 2: 전국 30개 이상의 지역별 시장 분석 및 활용 현황 -->
+    <section id="regional">
+      <h2>전국 지역별 소상공인 금융지원 및 저축은행 자금 활용 현황</h2>
+      <p>
+        개인사업자들의 자금 수요와 저축은행 지점망의 활용 양상은 지역별 경제 구조와 주요 업종 분포에 따라 상이하게 분석됩니다. 전국 각지의 상권 활성화 정도에 따라 각 저축은행은 맞춤형 특화 상품이나 지역 보증재단과 연계한 비대면 지원 사업을 활발히 전개하고 있습니다.
+      </p>
+      <p>
+        예를 들어 서울 명동과 강남을 중심으로 한 수도권과 경기 남부의 중심인 수원, 용인, 성남, 화성, 평택 지역은 높은 매출 지표를 기반으로 한 신용 기반 개인사업자대출 상품의 수요가 집중되어 있습니다. 한편 패션, 유통업이 고도화된 동대문 및 부천, 안양, 안산, 시흥, 부평 등 경기 서남부 지역은 유동자금 회전 주기가 빨라 일시적인 단기 회전자금 조달율이 높게 나타납니다.
+      </p>
+      <p>
+        남부 지역의 경제 축을 이루는 영남권의 대표 거점인 부산 해운대와 서면, 대구 동성로, 그리고 산업단지 배후 상권이 밀집한 울산, 포항, 구미, 창원, 김해 지역에서는 기계, 납품 및 소매업 관련 한도 대출의 비중이 큽니다. 반대로 서비스업과 관광업 비중이 절대적인 강원 지역의 춘천과 원주, 전남의 여수, 그리고 제주특별자치도의 경우 계절적 요인에 따른 매출 편차를 보전하기 위한 중장기 분할상환 방식의 조달 비율이 타 지역 대비 우세하게 관측됩니다.
+      </p>
+      <p>
+        신흥 상업 지구가 밀집한 세종, 대전 유성구, 충남의 천안과 충북의 청주 등 충청권에서는 공공기관 이전 배후 상권을 기반으로 한 안정적인 자금 흐름이 특징이며, 전북의 전주와 광주광역시의 상가 밀집 구역에서는 식음료 및 가맹점 중심의 특화 신용평가 모형이 적극 활용되고 있습니다. 이처럼 서울, 인천, 대전, 대구, 부산, 광주 등 대도시 권역뿐만 아니라 고양, 성남, 남양주 등 신도시 주거 밀집지까지 전국 30개 이상의 핵심 상권에서 자영업자들의 자금 융통 비용 분석이 활발하게 이뤄지고 있습니다.
+      </p>
+      
+      <h3>전국 주요 지역별 자금 운용 현황 가이드</h3>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>구역 구분</th>
+              <th>대표 지역 명칭</th>
+              <th>주요 자금 활용 업종</th>
+              <th>금융 조달 평균 가격대 (예상)</th>
+              <th>지역 신용보증 연계 특이사항</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>수도권 허브</td>
+              <td>서울, 인천, 경기 (수원, 고양, 성남, 용인, 부천, 안산, 남양주, 안양, 평택, 시흥, 화성)</td>
+              <td>정보기술(IT), 도소매, 프랜차이즈, 물류</td>
+              <td>연 6.5% ~ 11.2%</td>
+              <td>서울 및 경기 보증재단 연계 비대면 협약 우대 한도 적용 가능</td>
+            </tr>
+            <tr>
+              <td>영남권 상업 벨트</td>
+              <td>부산, 대구, 울산, 경북 (포항, 구미), 경남 (창원, 김해)</td>
+              <td>수출입 납품업, 제조업 부품사, 유통 서비스업</td>
+              <td>연 7.0% ~ 12.5%</td>
+              <td>지역 소상공인 특별자금 보증 비율 상향 및 금융 비용 감면 적용</td>
+            </tr>
+            <tr>
+              <td>충청 및 중부권</td>
+              <td>대전, 세종, 충북 (청주), 충남 (천안)</td>
+              <td>외식업, 학원가, 공공기관 납품업, 도소매</td>
+              <td>연 6.8% ~ 11.8%</td>
+              <td>세종 및 대전 특화 상가 자금 지원 프로그램 상시 운영</td>
+            </tr>
+            <tr>
+              <td>호남 및 관광 벨트</td>
+              <td>광주, 전북 (전주), 전남 (여수), 제주, 강원 (춘천, 원주)</td>
+              <td>숙박업, 식음료, 농수산물 유통, 로컬 관광 서비스</td>
+              <td>연 7.5% ~ 13.0%</td>
+              <td>계절 매출 변동성을 고려한 일시 상환 유예 프로그램 도입</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 3: 1금융권 은행과 2금융권 저축은행의 근본적인 차이점 및 장단점 비교 -->
+    <section id="comparison">
+      <h2>제1금융권과 제2금융권 저축은행의 자금 조달 장단점 비교</h2>
+      <p>
+        사업자가 자금을 차입할 때 마주하게 되는 가장 원초적인 고민은 거래 은행의 등급 선택입니다. 시중은행과 같은 1금융권의 경우 신용도가 최상위권인 사업자들에게 대단히 유용한 창구이지만, 저축은행과 같은 2금융권은 심사 유연성과 신속성 면에서 강력한 강점을 발휘합니다.
+      </p>
+      <p>
+        가장 큰 차이점은 대출의 심사 문턱과 금리 구조에 있습니다. 시중은행은 보통 대출 계약 승인 시 엄격한 소득세 신고 금액 및 총부채원리금상환비율(DSR) 한도를 준수하여 심사하므로 실질 매출은 크지만 세금 감면 혜택으로 신고 소득이 적은 영세 소상공인들은 거절 판정을 받기 일쑤입니다. 반면 저축은행개인사업자대출 상품은 소득 외에도 실질 매출(카드 결제 대금, 부가세 신고액 등)을 추정 소득으로 산출해 대출 가능 금액을 한층 폭넓게 제안합니다.
+      </p>
+      <div class="warning-box">
+        <h3>금리 격차와 신용점수 하락 리스크 분석</h3>
+        <p>
+          2금융권 저축은행의 최대 단점은 조달 비용(가격)이 상대적으로 높다는 점입니다. 예금 수신 금리가 높고 조달 자금의 원가가 크기 때문에 시중은행 대비 이자 비용이 증가하게 됩니다. 또한 2금융권 대출 계약 가입 사실 자체로도 신용평가기관(KCB, NICE)의 신용평점이 1금융권 이용 시보다 소폭 하락할 여지가 있어, 향후 대환 대출 및 추가 자금 융통 계획을 종합적으로 고려한 뒤 다이렉트로 진행해야 합니다.
+        </p>
+      </div>
+      <h3>주요 금융 업권별 다이렉트 차이점 요약</h3>
+      <ul>
+        <li><strong>제1금융권 시중은행:</strong> 금리가 낮아 이자 절감 효과가 제일 뛰어남. 그러나 까다로운 자격 조건과 서류 전형, 느린 처리 속도 및 정부 DSR 한도의 타이트한 적용이 최대 단점.</li>
+        <li><strong>제2금융권 저축은행:</strong> 비대면 모바일 앱을 통한 편리한 한도 계산, 간소화된 증빙 자료, 신속한 당일 실행이 최강의 장점. 다만 이자 부담(비용)이 크고 신용 평점 하락폭이 큼.</li>
+        <li><strong>지역 보증재단 정책자금:</strong> 금리가 가장 싸고 든든한 혜택을 제공하나, 보증서 발급에 이르는 대기 수요가 밀려 긴급한 일시 유동성 해결에는 한계가 존재함.</li>
+      </ul>
+    </section>
+
+    <!-- Section 4: 2026년도 저축은행 개인사업자 대출 상품의 종류와 브랜드 순위 -->
+    <section id="brands">
+      <h2>국내 주요 저축은행 브랜드별 개인사업자 상품 종류와 시장 평가</h2>
+      <p>
+        저축은행중앙회 공시 시스템에 등록된 2026년도 상반기 개인사업자대출 실적 및 민원 평가를 반영하여 우수 저축은행의 주요 상품 구성을 안내합니다. 각 브랜드의 신인도와 한도 혜택, 대출 금리는 시장의 수급 변화에 따라 유동적으로 작동합니다.
+      </p>
+      <p>
+        현재 자산 규모 순위 최상위권인 SBI저축은행과 OK저축은행, 웰컴저축은행은 대규모 비대면 인프라를 바탕으로 고성능 모바일 앱을 배포하여 운영하고 있습니다. 소상공인들이 핀테크 플랫폼과의 간편 연계를 통해 무방문으로 평균 연 8%에서 14%대 금리의 자금을 신속하게 확보할 수 있는 디지털 상품군을 주력으로 내세웁니다.
+      </p>
+      <p>
+        또한 신한저축은행, KB저축은행, IBK저축은행, NH저축은행 등 금융지주 계열 저축은행들은 시중 1금융권 은행 지점망과의 연계를 확대해 온오프라인 하이브리드 컨설팅을 제공하며 신뢰성 높은 중금리대 조달을 유도하고 있습니다. 이외에도 스마트저축은행, 한화저축은행, OSB저축은행, 페퍼저축은행 등은 주택 및 상가 등 담보물 평가에 탁월한 한도 산정 노하우를 갖추고 있어 고액 자금이 요구되는 자영업자들에게 적절한 포트폴리오를 제공 중입니다.
+      </p>
+      <p>
+        자영업자들의 온라인 소통 허브인 보배드림 금융 게시판, 디시인사이드 대출 갤러리, 에펨코리아(펨코) 재테크 카테고리 등에서 내돈내산 이용 후기를 참고하면, 복잡한 지점 서류 대기보다 다이렉트 인터넷 비대면 승인 어플을 활용하는 것이 승인 성공률을 높이는 실전 노하우로 공유되고 있습니다.
+      </p>
+
+      <h3>대표적인 저축은행 개인사업자대출 주요 상품 안내 (2026)</h3>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>저축은행 종류</th>
+              <th>대표 대출 상품 유형</th>
+              <th>최대 승인 한도</th>
+              <th>최저 금리 범위 (연)</th>
+              <th>비대면 접수 방식</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>금융지주 계열 저축은행 (신한/KB/IBK)</td>
+              <td>정부협약 소상공인 햇살론, 보증서 연계형 대출</td>
+              <td>최대 5,000만원</td>
+              <td>연 7.5% ~ 9.9%</td>
+              <td>지주사 통합 어플 및 비대면 서류 자동 스크래핑 제출</td>
+            </tr>
+            <tr>
+              <td>대형 전업 저축은행 (SBI/OK/웰컴)</td>
+              <td>비대면 전용 하이브리드 자영업자 신용대출</td>
+              <td>최대 1억 5,000만원</td>
+              <td>연 8.9% ~ 16.5%</td>
+              <td>브랜드 단독 전용 앱을 활용한 다이렉트 전자 계약</td>
+            </tr>
+            <tr>
+              <td>기업/부동산 특화 저축은행 (OSB/한화/스마트)</td>
+              <td>사업자 아파트/부동산 담보 연계 신용 보강 대출</td>
+              <td>담보 감정가의 최대 90%</td>
+              <td>연 5.8% ~ 11.5%</td>
+              <td>온라인 가감정 시스템 및 찾아가는 대출 모집인 출장 대행</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 5: 저축은행개인사업자대출 이자 및 원리금 계산기 (JS Interactive) -->
+    <section id="calculator">
+      <h2>자영업자 대출 이자 및 월 납입금 실시간 계산기</h2>
+      <p>
+        대출 계약을 체결하기 전에 매월 상환해야 할 원금과 이자 금액이 얼마에 달하는지 사전에 정밀하게 예상하는 것은 건전한 재무 운용의 기초입니다. 아래 입력 창에 희망하시는 대출 한도 금액과 연 예상 금리, 대출 기간을 기입하시고 상환 방식을 지정해 직접 계산해 보세요.
+      </p>
+      
+      <div style="background: #f1f5f9; padding: 25px; border-radius: 12px; border: 1px solid #cbd5e1; margin: 20px 0;">
+        <div class="flex-grid">
+          <div class="form-group">
+            <label for="loan_amount">희망 대출 한도 금액 (만원 단위 입력)</label>
+            <input type="number" id="loan_amount" value="3000" placeholder="예: 3000">
+          </div>
+          <div class="form-group">
+            <label for="loan_rate">예상 대출 금리 (연이율 % 단위)</label>
+            <input type="number" step="0.1" id="loan_rate" value="9.5" placeholder="예: 9.5">
+          </div>
+        </div>
+        <div class="flex-grid">
+          <div class="form-group">
+            <label for="loan_months">대출 유지 기간 (개월 단위)</label>
+            <input type="number" id="loan_months" value="36" placeholder="예: 36">
+          </div>
+          <div class="form-group">
+            <label for="repayment_method">상환 원리금 균등 방식 선택</label>
+            <select id="repayment_method">
+              <option value="equal_principal_interest">원리금균등분할상환 (원금과 이자를 매달 동일하게)</option>
+              <option value="equal_principal">원금균등분할상환 (원금을 균등하게, 이자는 점점 적게)</option>
+              <option value="bullet">만기일시상환 (매월 이자만 내다 만기에 원금 일시상환)</option>
+            </select>
+          </div>
+        </div>
+        <button type="button" class="btn-cta" onclick="calculateLoan()" style="width: 100%;">월 납입 비용 자동 계산하기</button>
+        
+        <div id="calc_result" style="margin-top:20px;"></div>
+      </div>
+      
+      <script>
+        function calculateLoan() {
+          const amountInput = document.getElementById('loan_amount').value;
+          const rateInput = document.getElementById('loan_rate').value;
+          const monthsInput = document.getElementById('loan_months').value;
+          const method = document.getElementById('repayment_method').value;
+
+          const amount = parseFloat(amountInput) * 10000; // 만원 -> 원
+          const rate = parseFloat(rateInput) / 100 / 12; // 연이율 % -> 월이율 소수점
+          const months = parseInt(monthsInput);
+
+          if (isNaN(amount) || isNaN(rate) || isNaN(months) || amount <= 0 || rate <= 0 || months <= 0) {
+            document.getElementById('calc_result').innerHTML = "<p style='color:red;'>정확한 수치를 기입해 주세요.</p>";
+            return;
+          }
+
+          let totalPayment = 0;
+          let totalInterest = 0;
+          let monthlyPaymentText = "";
+
+          if (method === "equal_principal_interest") {
+            // 원리금균등분할상환
+            const monthlyPayment = (amount * rate * Math.pow(1 + rate, months)) / (Math.pow(1 + rate, months) - 1);
+            totalPayment = monthlyPayment * months;
+            totalInterest = totalPayment - amount;
+            monthlyPaymentText = Math.round(monthlyPayment).toLocaleString() + " 원";
+          } else if (method === "equal_principal") {
+            // 원금균등분할상환
+            const principalPerMonth = amount / months;
+            let interestSum = 0;
+            for (let i = 0; i < months; i++) {
+              interestSum += (amount - (principalPerMonth * i)) * rate;
+            }
+            totalInterest = interestSum;
+            totalPayment = amount + totalInterest;
+            monthlyPaymentText = "첫째 달 예상 납입금 약 " + Math.round(principalPerMonth + (amount * rate)).toLocaleString() + " 원 (매월 체감 방식)";
+          } else if (method === "bullet") {
+            // 만기일시상환
+            totalInterest = amount * rate * months;
+            totalPayment = amount + totalInterest;
+            monthlyPaymentText = "매달 고정 이자 약 " + Math.round(amount * rate).toLocaleString() + " 원 (만기에 원금 전액 납부)";
+          }
+
+          document.getElementById('calc_result').innerHTML = `
+            <div style="background:#f0fdf4; border-left:4px solid #16a34a; padding:20px; border-radius:8px; margin-top:15px;">
+              <p style="margin:5px 0; font-size:1.1rem; color:#16a34a;"><strong>계산 결과 분석</strong></p>
+              <p style="margin:5px 0;"><strong>기준월 상환액:</strong> ${monthlyPaymentText}</p>
+              <p style="margin:5px 0;"><strong>총 융통 원금:</strong> ${Math.round(amount / 10000).toLocaleString()} 만원</p>
+              <p style="margin:5px 0;"><strong>대출 기간 전체 이자액:</strong> ${Math.round(totalInterest).toLocaleString()} 원</p>
+              <p style="margin:5px 0;"><strong>최종 반환 합계액:</strong> ${Math.round(totalPayment).toLocaleString()} 원</p>
+            </div>
+          `;
+        }
+      </script>
+    </section>
+
+    <!-- Section 6: 비대면 온라인 신청 프로세스 및 가입 조건 -->
+    <section id="checklist">
+      <h2>저축은행개인사업자대출 승인 성공을 위한 핵심 체크리스트</h2>
+      <p>
+        신용 공여를 승인받고 만족할 만한 비용 견적을 산출하기 위해서는 금융사의 내부 규정을 이해하고 필요한 구비 요건을 사전에 마련해두는 기획력이 필요합니다. 가입 심사를 신청하기 전에 검증해야 할 비대면 다이렉트 필수 준비물은 다음과 같습니다.
+      </p>
+      
+      <div class="info-box">
+        <h3>필수 요건 및 준비서류 체크 리스트</h3>
+        <ol>
+          <li><strong>기본 사업 운영 기간의 충족:</strong> 대다수의 신규 개인사업자 신용 대출은 개업일 기준으로 최소 3개월에서 6개월 이상 영업 실적이 잡혀 있어야만 가입 대상에 등록됩니다.</li>
+          <li><strong>신용도 평점 유지:</strong> 신용점수가 지나치게 낮아 회복 지원 제도를 이용 중이거나 장기 연체 이력이 등재되어 있는 경우에는 제한을 받을 수 있으므로 평소 NICE 및 KCB 신용관리가 요구됩니다.</li>
+          <li><strong>전자 스크래핑용 간편 인증 수단 준비:</strong> 요즘 대부분의 어플 기반 비대면 사이트들은 홈택스, 정부24와 자동 연동되어 무서류로 진행됩니다. 따라서 공동인증서나 카카오톡, 토스, 네이버 등 디지털 민간 인증서 발급이 필요합니다.</li>
+          <li><strong>세금 체납 사실 여부 파악:</strong> 국세 및 지방세 체납이 있는 상태에서는 심사 진행이 원천 거부되므로, 완납증명서를 발급받아 사전에 연체 채무를 변제해두는 것이 중요합니다.</li>
+        </ol>
+      </div>
+      <p>
+        나아가, 최근 핀테크 플랫폼에서는 단순 상담원 대면 컨설팅 방식에서 벗어나, 대형 언어 모델 기술에 기반한 AI 금융비서와 챗지피티(ChatGPT), 제미나이(Gemini) 등의 첨단 알고리즘을 결합하고 있습니다. 이를 통해 사용자가 직관적인 질문만으로 자신에게 가장 할인 혜택이 큰 금융기관 순위 및 다이렉트 저렴한곳을 수 초 만에 비교 추천받을 수 있는 혁신적인 고객 편의가 구글, 네이버 등 주요 포털 생태계를 넘어 상용 앱 내부에서도 널리 실현되고 있습니다.
+      </p>
+    </section>
+
+    <!-- Section 7: 맞춤형 한도 및 금리 무료 컨설팅 신청서 (Dwell time booster) -->
+    <section id="counseling">
+      <h2>비대면 맞춤형 저축은행 개인사업자 자금 컨설팅 견적 신청</h2>
+      <p>
+        전국 각 지역에서 활동 중이신 개인사업자 및 자영업자 고객을 위해, 희망하시는 자금 한도 요건과 매출 상황에 따라 최상의 선택지를 설계할 수 있도록 비대면 금융 상담 지원서 입력을 준비했습니다. 수집된 기본 정보를 토대로 안전한 조달 프로세스를 안내해 드립니다.
+      </p>
+      
+      <form style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:12px; padding:25px; margin-top:20px;">
+        <div class="flex-grid">
+          <div class="form-group">
+            <label for="c_name">대표자 성함</label>
+            <input type="text" id="c_name" placeholder="실명을 적어주세요">
+          </div>
+          <div class="form-group">
+            <label for="c_phone">긴급 연락처 (휴대폰 번호)</label>
+            <input type="tel" id="c_phone" placeholder="010-0000-0000">
+          </div>
+        </div>
+
+        <div class="flex-grid">
+          <div class="form-group">
+            <label for="c_region">사업장 운영 지역 선택</label>
+            <select id="c_region">
+              <option value="">대표 지역을 지정하세요</option>
+              <option value="서울">서울특별시</option>
+              <option value="인천">인천광역시</option>
+              <option value="경기">경기도 일대</option>
+              <option value="부산">부산광역시</option>
+              <option value="대구">대구광역시</option>
+              <option value="울산">울산광역시</option>
+              <option value="대전">대전광역시</option>
+              <option value="광주">광주광역시</option>
+              <option value="세종">세종특별자치시</option>
+              <option value="제주">제주특별자치도</option>
+              <option value="기타">기타 지방 도성 구역</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="c_industry">주요 사업 업종 분류</label>
+            <select id="c_industry">
+              <option value="">해당 업종 선택</option>
+              <option value="음식점">식음료 및 외식 프랜차이즈</option>
+              <option value="도소매">도매 및 소매 유통업</option>
+              <option value="제조">제조업 및 공장 가동</option>
+              <option value="인터넷쇼핑">온라인 쇼핑몰 및 전자상거래</option>
+              <option value="서비스">기타 일반 서비스업</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex-grid">
+          <div class="form-group">
+            <label for="c_period">사업 영위 기간 (개업 후 경과일)</label>
+            <select id="c_period">
+              <option value="">운영 기간 선택</option>
+              <option value="신규">3개월 미만 (신규 창업 단계)</option>
+              <option value="중기">3개월 이상 ~ 1년 미만</option>
+              <option value="장기">1년 이상 ~ 3년 미만</option>
+              <option value="안정">3년 이상 장기 운영 사업장</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="c_sales">연간 추정 매출액 범위</label>
+            <select id="c_sales">
+              <option value="">매출액 구간 선택</option>
+              <option value="미만5천">연 매출 5천만원 미만</option>
+              <option value="미만1억">연 매출 5천만원 ~ 1억원 미만</option>
+              <option value="미만3억">연 매출 1억원 ~ 3억원 미만</option>
+              <option value="초과3억">연 매출 3억원 이상 우량 사업장</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="c_wish">희망 조달 한도 금액</label>
+          <select id="c_wish">
+            <option value="">필요하신 예상 금액 범위를 고르세요</option>
+            <option value="소액">1,000만원 이하 (생계 자금)</option>
+            <option value="중액">1,000만원 초과 ~ 3,000만원 이하</option>
+            <option value="고액">3,000만원 초과 ~ 5,000만원 이하</option>
+            <option value="거액">5,000만원 초과 고액 운전 자금</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="c_memo">추가 요청 및 사전 질문 사항</label>
+          <textarea id="c_memo" rows="4" placeholder="예시: 신설 법인 등록 예정이며 우대 혜택 및 수수료 할인 방안이 궁금합니다. 저신용자를 위한 햇살론 다이렉트 자격 조건 및 금리 저렴한곳 추천 부탁드립니다."></textarea>
+        </div>
+
+        <div class="form-group" style="display: flex; align-items: flex-start; gap: 10px;">
+          <input type="checkbox" id="c_agree" style="width: auto; margin-top: 5px;">
+          <label for="c_agree" style="font-weight: normal; font-size: 0.9rem;">
+            안내 제공을 위한 기본 정보 취급방침 및 제3자 제공 동의안에 찬성하며 정식 컨설팅 분석 절차를 승인하겠습니다.
+          </label>
+        </div>
+
+        <button type="submit" class="btn-cta" style="width: 100%; font-size: 1.1rem; padding: 15px;">무료 맞춤형 금융 컨설팅 제안서 수령하기</button>
+      </form>
+    </section>
+
+    <!-- Section 8: 공인된 신뢰성 있는 공식 외부 사이트 참조 정보 -->
+    <section id="reference">
+      <h2>공식 검증 자료 및 신뢰할 수 있는 기관 리스트</h2>
+      <p>
+        서민 금융 안정과 시장 건전성 확보를 위해 공시되는 주요 규정 및 자영업 대출 한도 가이드는 아래의 신뢰도 높은 공공 시스템 및 분석 도메인을 통하여 상시 확인하실 수 있습니다. 이자 경감 이벤트나 신규 혜택을 다각적으로 점검해보시기 바랍니다.
+      </p>
+      <ul>
+        <li>
+          <strong>개인사업자 금융 상권 분석 및 팩트 통계 시스템:</strong> 
+          <a href="https://loanforbusinessn.koreahankang.com" target="_blank" rel="noopener">개인사업자 대출 신용 보강 분석 정보 포털 (finance.reliabledone.com)</a>
+        </li>
+        <li>
+          <strong>저축은행 기초 상식과 역사적 제도 변천 안내:</strong> 
+          <a href="https://namu.wiki" target="_blank" rel="noopener">제2금융권 상호 저축은행 나무위키 사전</a>
+        </li>
+        <li>
+          <strong>국가 서민 금융 지원 시책 및 금융 안정 정책 본부:</strong> 
+          <a href="https://loanforbusinessj.koreahankang.com" target="_blank" rel="noopener">대한민국 금융위원회 (FSC) 공식 웹사이트</a>
+        </li>
+        <li>
+          <strong>소비자 보호 제도 및 금융 사기 예방 종합 공시 채널:</strong> 
+          <a href="https://fine.fss.or.kr" target="_blank" rel="noopener">금융감독원 금융소비자 정보포털 파인 (FSS Fine)</a>
+        </li>
+        <li>
+          <strong>전국 저축은행 정기 공시 및 맞춤 대출 일괄 비교 사이트:</strong> 
+          <a href="https://loanforbusinessm.koreahankang.com" target="_blank" rel="noopener">저축은행중앙회 소비자포털 공시실</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  
